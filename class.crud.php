@@ -70,9 +70,9 @@ class crud{
 	/**
 	 * Call to a table.
 	 */
-	public function query($sql){
+	public function query($sql, $bind_values = array()){
 		$statement = $this->dbh->prepare($sql);
-		$statement->execute();
+		$statement->execute($bind_values);
 		return $statement->fetchAll(PDO::FETCH_ASSOC);
 	}
 	
